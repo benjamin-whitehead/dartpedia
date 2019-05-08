@@ -10,13 +10,22 @@ class ParamaterException implements Exception {
   ParamaterException(String cause);
 }
 
+
+/*
+  TODO:
+    - Add different language support
+    - 
+
+*/
+
 class Page {
   // Base URL for the Wikipedia API
   static const String URL = "https://en.wikipedia.org/w/api.php";
 
-  String topic, title;
+  String topic, title, titleLink, content;
   int pageId;
   Map<String, dynamic> pageData;
+  List<dynamic> links;
 
   Page(String topic) {
     this.topic = topic;
@@ -29,12 +38,30 @@ class Page {
       'page': topic,
       'format': 'json'
     };
-    await parseWikipediaPage(topic, params);
-    //pageData[k].replaceAll(RegExp("<[^>]*>"), "")
-
-    pageData['parse']['text']['*'] = pageData['parse']['text']['*'].replaceAll(RegExp("<[^>]*>"), "");
-    print(pageData['parse']['text']['*']);
+    await parseWikipediaPage(topic, params).then((value) {
+      pageData['parse']['text']['*'] = pageData['parse']['text']['*']
+          .replaceAll(RegExp("<[^>]*>"), "")
+          .replaceAll(RegExp("[&][#][0-9]{2}"), "");
+    });
+    setData();
   }
+
+  void setData() {
+    /* DELETING UNNCESSARY DATA */
+    pageData.remove('properties');
+    pageData.remove('images');
+    pageData.remove('templates');
+    pageData.remove('parsewarnings');
+    pageData.remove('langlinks');
+
+    print(pageData);
+    
+    title = pageData['parse']['title'];
+    titleLink = title.replaceAll(RegExp(' +'), '_');
+    content = pageData['parse']['text']['*'];
+  }
+
+
 
   Future parseWikipediaPage(String topic, Map<String, dynamic> params) async {
     Response response = await Dio().get(URL, queryParameters: params);
@@ -47,8 +74,11 @@ class Page {
         throw ParamaterException('Invalid Parameters');
     }
   }
+
+  String get url => 'http://en.wikipedia.org/wiki/$titleLink';
 }
 
-main() {
-  Page x = Page('New York City');
+main() async {
+  Page x = Page("New York");
+  print(x.url);
 }

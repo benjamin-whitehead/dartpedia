@@ -1,8 +1,7 @@
 name: dartpedia
-description: A new flutter plugin project.
+description: API Wrapper for the Wikipedia API written in Dart
 version: 0.0.1
-author:
-homepage:
+author: Benjamin Whitehead
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -10,7 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.12.0+2 
+  http: ^0.12.0+2
+  dio: 2.1.3
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:dio/dio.dart';
 
 class MissingTitleException implements Exception {
@@ -5,14 +6,13 @@ class MissingTitleException implements Exception {
   MissingTitleException(String cause);
 }
 
-
 /*
   TODO:
     - Add different language support
     - 
 */
 
-class Page {
+class WikipediaPage {
   // Base URL for the Wikipedia API
   static const String URL = "https://en.wikipedia.org/w/api.php";
 
@@ -21,10 +21,9 @@ class Page {
   Map<String, dynamic> pageData;
   List<dynamic> links;
 
-  Page({String topic}) {
+  WikipediaPage({String topic}) {
     this.topic = topic;
-    if (this.topic != null)
-      buildPage(topic);
+    if (this.topic != null) buildPage(topic);
   }
 
   void buildPage(String topic) async {
@@ -48,14 +47,10 @@ class Page {
     pageData.remove('templates');
     pageData.remove('parsewarnings');
     pageData.remove('langlinks');
-
-    print(pageData);
-    
     title = pageData['parse']['title'];
     titleLink = title.replaceAll(RegExp(' +'), '_');
     content = pageData['parse']['text']['*'];
   }
-
 
   Future parseWikipediaPage(String topic, Map<String, dynamic> params) async {
     Response response = await Dio().get(URL, queryParameters: params);
@@ -70,9 +65,4 @@ class Page {
   String get url => 'http://en.wikipedia.org/wiki/$titleLink';
 }
 
-/*
-main() async {
-  Page x = Page("New York");
-  print(x.url);
-}
-*/
+Future page(String topic) {}

@@ -4,7 +4,7 @@ import 'package:dartpedia/dartpedia.dart' as prefix1;
 void main() {
   /* If a topic is unknown, the code will throw a MissingTitleException, this should be caught  */
   test("Testing MissingTitleException", () {
-    prefix1.Page page = prefix1.Page();
+    prefix1.WikipediaPage page = prefix1.WikipediaPage();
     // Function throws an Exception
     expect(
         page.parseWikipediaPage(

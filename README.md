@@ -10,7 +10,7 @@ This is an early implementation of the MediaWiki API in Dart. Note, there are st
 To get started, simply add dartpedia to  `pubspec.yaml`:
 ```yaml
 dependencies:
-  dartpedia: ^1.0.1
+  dartpedia: ^1.0.2
 ``` 
 
 ## Using

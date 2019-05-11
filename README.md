@@ -35,7 +35,7 @@ var content = wikipediaPage.content;
 ```
 
 ## Examples
-For more examples, see the examples folder.
+For more examples, see the [examples folder](https://github.com/bmwhitehead2000/dartpedia/tree/master/examples).
 
 ## Future Plans:
 1. Rewrite WikipediaAPI class, get rid of all dynamics for more type safety (hopefully).

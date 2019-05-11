@@ -27,7 +27,7 @@ class WikipediaPage {
     this._titleLink = title.replaceAll(' ', '_');
   }
 
-  // Return's a summary of the wikipedia page
+  /// Return's a summary of the Wikipedia Article represented by this class.
   Object summary() {
     var buffer = StringBuffer();
     buffer.write('TITLE:  ${this._title}\n');
@@ -45,6 +45,7 @@ class WikipediaPage {
   dynamic get links => _links;
 }
 
+/// Parses a Wikipedia page given a specific topic, get's a response and checks for errors.
 Future parseWikipediaPage(String topic, Map<String, dynamic> params) async {
   Response response = await Dio()
       .get("https://en.wikipedia.org/w/api.php", queryParameters: params);
@@ -57,7 +58,7 @@ Future parseWikipediaPage(String topic, Map<String, dynamic> params) async {
     return pageData;
 }
 
-// Cleans up the data for usage
+/// The data recieved by the Wikipedia API is messy, this get's rid of unessential data
 void cleanData(dynamic pageData) {
   pageData['parse'].remove('langlinks');
   pageData['parse'].remove('categories');
@@ -73,14 +74,14 @@ void cleanData(dynamic pageData) {
       .replaceAll(RegExp("[&][#][0-9]{2}"), "");
 }
 
-// Creates a list out of the
+/// Create's a list of all the links from the Wikipedia Page.
 dynamic getLinks(List<dynamic> linkData) {
   List<String> list = List<String>();
   linkData.forEach((e) => list.add(e['*'] as String));
   return list;
 }
 
-// Wraps a WikipediaPage object in a Future
+/// Wraps a WikipediaPage object inside of a Future so it can be used.
 Future page(String topic) async {
   var pageData = await parseWikipediaPage(
       topic, {'action': 'parse', 'page': topic, 'format': 'json'});

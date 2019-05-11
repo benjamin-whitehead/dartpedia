@@ -22,7 +22,7 @@ Next, create a new WikipediaPage object with the `wiki.page(topic)` function.
 ```dart
 var wikipediaPage = await wiki.page('Dart (programming language)');
 ```
-Use the summary function to print a `.summary()` of the page.
+Use the `.summary()` function to print a summary of the page.
 ```dart
 print(wikipediaPage.summary());
 ```

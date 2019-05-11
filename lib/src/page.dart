@@ -5,17 +5,11 @@ class MissingTitleException implements Exception {
   MissingTitleException(String cause);
 }
 
-class ParamaterException implements Exception {
-  String cause;
-  ParamaterException(String cause);
-}
-
 
 /*
   TODO:
     - Add different language support
     - 
-
 */
 
 class Page {
@@ -27,9 +21,10 @@ class Page {
   Map<String, dynamic> pageData;
   List<dynamic> links;
 
-  Page(String topic) {
+  Page({String topic}) {
     this.topic = topic;
-    buildPage(topic);
+    if (this.topic != null)
+      buildPage(topic);
   }
 
   void buildPage(String topic) async {
@@ -62,7 +57,6 @@ class Page {
   }
 
 
-
   Future parseWikipediaPage(String topic, Map<String, dynamic> params) async {
     Response response = await Dio().get(URL, queryParameters: params);
     pageData = response.data;
@@ -70,15 +64,15 @@ class Page {
       final errorCode = pageData['error']['code'];
       if (errorCode == 'missingtitle')
         throw MissingTitleException('Title not found');
-      else if (errorCode == 'params')
-        throw ParamaterException('Invalid Parameters');
     }
   }
 
   String get url => 'http://en.wikipedia.org/wiki/$titleLink';
 }
 
+/*
 main() async {
   Page x = Page("New York");
   print(x.url);
 }
+*/

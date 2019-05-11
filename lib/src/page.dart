@@ -37,12 +37,12 @@ class WikipediaPage {
     buffer.write('PAGE CONTENT:  ${this._content}\n');
     return buffer.toString();
   }
+
   String get title => _title;
   String get content => _content;
   String get url => 'http://en.wikipedia.org/wiki/$_titleLink';
   int get pageId => _pageId;
   dynamic get links => _links;
-
 }
 
 Future parseWikipediaPage(String topic, Map<String, dynamic> params) async {

@@ -1,10 +1,10 @@
-An API Wrapper for the [Wikimedia API](https://www.mediawiki.org/wiki/API:Main_page)
+An API Wrapper for the [MediaWiki API](https://www.mediawiki.org/wiki/API:Main_page)
 
-Created by [Benjamin Whitehead](www.linkedin.com/in/benjamin-whitehead-100)
+Created by [Benjamin Whitehead](https://www.linkedin.com/in/benjamin-whitehead-100)
 
 [![pub package](https://img.shields.io/pub/v/http.svg)](https://pub.dartlang.org/packages/http)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This is an early implementation of the MediaWiki API in Dart. Note, there are still some issues with this API that will be worked on in the coming months. Some of these issues include: unclean data and over use of dynamic types.
 
 ## Getting Started
 To get started, simply add dartpedia to  `pubspec.yaml`:
@@ -14,18 +14,33 @@ dependencies:
 ``` 
 
 ## Using
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+To use dartpedia, first start by importing the package.
 ```dart
 import 'package:dartpedia/dartpedia.dart' as wiki;
-
+```
+Next, create a new WikipediaPage object with the `wiki.page(topic)` function.
+```dart
 var wikipediaPage = await wiki.page('Dart (programming language)');
+```
+Use the summary function to print a summary of the page.
+```dart
 print(wikipediaPage.summary());
-
+```
+To get the individual components of a page, use the following functions
+```dart
 var url = wikipediaPage.url;
 var title = wikipediaPage.title;
-
+var links = wikipediaPage.links;
+var content = wikipediaPage.content;
 ```
 
 ## Examples
-For more examples, see 
+For more examples, see the examples folder.
 
+## Future Plans:
+1. Rewrite WikipediaAPI class, get rid of all dynamics for more type safety (hopefully).
+    1. Also continue to clean up data given by API 
+2. Implement Topic Search:
+    * Search for a title or text.
+    * Search for wiki pages near a location.
+    * Prefix Search Functionality

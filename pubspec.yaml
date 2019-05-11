@@ -1,11 +1,11 @@
 name: dartpedia
-description: API Wrapper for the Wikipedia API written in Dart
-version: 0.0.1
+description: Wikipedia API Wrapper written in Dart
+version: 1.0.0
 author: Benjamin Whitehead <benwhitehead21@gmail.com>
 homepage: https://github.com/bmwhitehead2000/dartpedia
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
   flutter:

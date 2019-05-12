@@ -1,5 +1,3 @@
-
-
 // Exception used by Page to determine if a Wikipedia Page exists or not
 class MissingTitleException implements Exception {
   String cause;
@@ -69,5 +67,3 @@ class WikipediaPage {
   int get pageId => _pageId;
   dynamic get links => _links;
 }
-
-

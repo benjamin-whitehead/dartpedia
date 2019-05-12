@@ -2,8 +2,6 @@ import 'wikipedia_response.dart';
 import 'package:dio/dio.dart';
 import 'wikipedia_page.dart';
 
-export 'wikipedia_page.dart';
-
 class PageResponse implements WikipediaResponse {
   Future parse(String topic, Map<String, dynamic> params) async {
     Response response = await Dio()
@@ -13,7 +11,7 @@ class PageResponse implements WikipediaResponse {
       final errorCode = pageData['error']['code'];
       if (errorCode == 'missingtitle')
         throw MissingTitleException('Title not found');
-      else // There is still an error so throw a general exception
+      else
         throw Exception;
     } else
       return pageData;

@@ -24,7 +24,8 @@ class WikipediaPage {
     this._pageId = pageId;
     this._links = links;
     // Replaces the spaces in the title with underscores via Wikipedia Syntax
-    this._titleLink = title.replaceAll(' ', '_');
+    if (title != null)
+      this._titleLink = title.replaceAll(' ', '_');
   }
 
   /// Return's a summary of the Wikipedia Article represented by this class.
@@ -36,6 +37,16 @@ class WikipediaPage {
     buffer.write('LINKS:  ${this._links}\n');
     buffer.write('PAGE CONTENT:  ${this._content}\n');
     return buffer.toString();
+  }
+
+  /// Summarize's the content of the Wikipedia Page up to length characters long
+  Object summarizeContentUpTo(int length) {
+    return this._content.substring(0, length);
+  }
+
+  // Summarize's the content of the Wikipedia Page from start to end character
+  Object summarizeContentFromTo(int start, int end) {
+    return this._content.substring(start, end);
   }
 
   String get title => _title;

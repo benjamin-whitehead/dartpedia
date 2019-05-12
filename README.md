@@ -33,27 +33,7 @@ var title = wikipediaPage.title;
 var links = wikipediaPage.links;
 var content = wikipediaPage.content;
 ```
-
-## Examples
-### Get all unique words in a Wikipedia page:
-```dart
-import 'package:dartpedia/dartpedia.dart' as wiki;
-main() async {
-  var words = [];
-  try {
-    var page = await wiki.page('New York City');
-    var pageContents = ((page.content).split(' '));
-    pageContents.forEach((e) {
-      if (!words.contains(e)) {
-        words.add(e);
-      }
-    });
-  } catch (exception) {
-    print(exception);
-  }
-  print(words);
-}
-```
+## Examples:
 More examples can be found in the Examples folder
 ## Future Plans:
 1. Rewrite WikipediaAPI class, get rid of all dynamics for more type safety (hopefully).

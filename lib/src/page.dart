@@ -49,6 +49,11 @@ class WikipediaPage {
     return this._content.substring(start, end);
   }
 
+  @override
+  String toString() {
+    return this.title;
+  }
+
   String get title => _title;
   String get content => _content;
   String get url => 'http://en.wikipedia.org/wiki/$_titleLink';

@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+
 
 // Exception used by Page to determine if a Wikipedia Page exists or not
 class MissingTitleException implements Exception {
@@ -70,16 +70,4 @@ class WikipediaPage {
   dynamic get links => _links;
 }
 
-Future parseWikipediaPage(String topic, Map<String, dynamic> params) async {
-  Response response = await Dio()
-      .get("https://en.wikipedia.org/w/api.php", queryParameters: params);
-  var pageData = response.data;
-  if (pageData['error'] != null) {
-    final errorCode = pageData['error']['code'];
-    if (errorCode == 'missingtitle')
-      throw MissingTitleException('Title not found');
-    else // There is still an error so throw a general exception
-      throw Exception;
-  } else
-    return pageData;
-}
+

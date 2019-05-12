@@ -3,7 +3,7 @@ import 'package:dartpedia/dartpedia.dart' as wiki;
 
 main() {
   test("Testing MissingTitleException", () => {
-    expect(wiki.parseWikipediaPage('zzzzz', {'action': 'parse', 'page': 'zzzzz', 'format': 'json'}), throwsException)
+    expect(wiki.PageResponse().parse('zzzzz', {'action': 'parse', 'page': 'zzzzz', 'format': 'json'}), throwsException)
   });
 
 

@@ -23,7 +23,7 @@ main() async {
   print(words);
 }
 ```
-### Get all unique words in a Wikipedia page:
+### Summing up the lengths of all the words in each sub page of a given topic:
 ```dart
 import 'package:dartpedia/dartpedia.dart' as wiki;
 int addWordsInPage(wiki.WikipediaPage page) {

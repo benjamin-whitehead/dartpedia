@@ -17,5 +17,9 @@ Added Unit Tests for `page.dart`
 Updated the /example README to contain code for the examples found in the folder
 
 
-## 1.0.4
-Abstracted the WikipediaPage class to its own file, `wikipedia_page.dart` for future expansion
+## 1.5.0
+Abstracted a lot of the classes and responses behind the scene
+
+Added testing for `search.dart`
+
+Added searching capabilities, see example and README for details

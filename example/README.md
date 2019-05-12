@@ -46,3 +46,12 @@ main() async {
   print('Total $sum');
 }
 ```
+### Getting all related topics for a certain phrase
+```dart
+import 'package:dartpedia/dartpedia.dart' as wiki;
+
+main() async {
+  var relatedTopics = await wiki.search('California');
+  print(relatedTopics);
+}
+```

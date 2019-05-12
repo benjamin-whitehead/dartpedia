@@ -33,12 +33,10 @@ var title = wikipediaPage.title;
 var links = wikipediaPage.links;
 var content = wikipediaPage.content;
 ```
+To search for possible topics for a phrase, use the `.search(topic)` function
+```dart
+var relatedTopics = await wiki.search("Dart");
+print(relatedTopics);
+```
 ## Examples:
 More examples can be found in the Examples folder
-## Future Plans:
-1. Rewrite WikipediaAPI class, get rid of all dynamics for more type safety (hopefully).
-    1. Also continue to clean up data given by API 
-2. Implement Topic Search:
-    * Search for a title or text.
-    * Search for wiki pages near a location.
-    * Prefix Search Functionality

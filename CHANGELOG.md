@@ -15,3 +15,7 @@ Added additional summary functions to `page.dart`
 Added Unit Tests for `page.dart`
 
 Updated the /example README to contain code for the examples found in the folder
+
+
+## 1.0.4
+Abstracted the WikipediaPage class to its own file, `wikipedia_page.dart` for future expansion

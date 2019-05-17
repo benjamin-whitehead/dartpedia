@@ -23,3 +23,6 @@ Abstracted a lot of the classes and responses behind the scene
 Added testing for `search.dart`
 
 Added searching capabilities, see example and README for details
+
+## 1.6.0
+Added Travis CI support

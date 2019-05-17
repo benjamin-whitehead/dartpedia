@@ -2,6 +2,7 @@
 The following are example programs using the dartpedia package:
 * Getting all unique words in a given Wikipedia Page
 * Getting the sum of all lengths of words in a given Wikipedia's Sub Pages
+* Getting all related topics to a given topic
 
 ## Examples
 ### Getting all unique words in a given Wikipedia Page:

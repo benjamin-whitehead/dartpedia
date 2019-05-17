@@ -3,5 +3,4 @@ dart:
   - dev
 dart_task:
   - test: --platform vm
-  - dartanalyzer
-  - dartfmt 
+  - dartanalyzer 

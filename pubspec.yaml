@@ -1,6 +1,6 @@
 name: dartpedia
 description: API Wrapper for the MediaWiki API. Used to gather information from any Wikipedia Page.
-version: 1.6.5
+version: 1.6.6
 homepage: https://github.com/bmwhitehead2000/dartpedia
 
 environment:

@@ -9,10 +9,12 @@ class PageResponse implements WikipediaResponse {
     var pageData = response.data;
     if (pageData['error'] != null) {
       final errorCode = pageData['error']['code'];
-      if (errorCode == 'missingtitle')
+      if (errorCode == 'missingtitle') {
         throw MissingTitleException('Title not found');
-      else
+      }
+      else {
         throw Exception;
+      }
     } else
       return pageData;
   }

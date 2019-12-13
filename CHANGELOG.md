@@ -29,3 +29,6 @@ Added Travis CI support
 
 ## 1.6.5
 Removed the Flutter Dependencies for the project, making it a pure dart package
+
+## 1.6.6
+Fixed minor issues

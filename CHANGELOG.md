@@ -26,3 +26,6 @@ Added searching capabilities, see example and README for details
 
 ## 1.6.0
 Added Travis CI support
+
+## 1.6.5
+Removed the Flutter Dependencies for the project, making it a pure dart package

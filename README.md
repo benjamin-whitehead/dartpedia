@@ -7,6 +7,8 @@ Created by [Benjamin Whitehead](https://www.linkedin.com/in/bmw1042)
 
 This is an early implementation of the MediaWiki API in Dart. Note, there are still some issues with this API that will be worked on in the coming months. Some of these issues include: unclean data and over use of dynamic types.
 
+NOTE: This is the development branch, for more stable, please see master
+
 ## Getting Started
 To get started, simply add dartpedia to  `pubspec.yaml`:
 ```yaml

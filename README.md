@@ -3,7 +3,7 @@ An API Wrapper for the [MediaWiki API](https://www.mediawiki.org/wiki/API:Main_p
 Created by [Benjamin Whitehead](https://www.linkedin.com/in/bmw1042)
 
 [![pub package](https://img.shields.io/pub/v/dartpedia.svg)](https://pub.dartlang.org/packages/dartpedia)
-[![Build Status]https://travis-ci.com/benjamin-whitehead/dartpedia.svg?branch=master)](https://travis-ci.com/benjamin-whitehead/dartpedia)
+[![Build Status](https://travis-ci.com/benjamin-whitehead/dartpedia.svg?branch=master)](https://travis-ci.com/benjamin-whitehead/dartpedia)
 
 This is an early implementation of the MediaWiki API in Dart. Note, there are still some issues with this API that will be worked on in the coming months. Some of these issues include: unclean data and over use of dynamic types.
 
